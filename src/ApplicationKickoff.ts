@@ -4,6 +4,7 @@ import PIXI = require("pixi.js");
 import container  from "./inversify.config";
 import { ExecutionOrderController } from "./ExecutionOrderController";
 import { Game } from "./Game";
+import { Input } from "./Input";
 
 //WebGL is the preferred renderer as it is a lot faster. If webGL is not supported by the browser then this function will return a canvas renderer
 var renderer = PIXI.autoDetectRenderer(window.innerWidth, window.innerHeight, { "backgroundColor": 0x1C1C1C });
@@ -41,3 +42,13 @@ window.addEventListener("resize", () => {
         executionOrderController.onResize();
         renderer.resize(window.innerWidth, window.innerHeight);
     });
+
+var input = container.get(Input);
+
+document.addEventListener('keydown', (keyboardEvent) => { 
+    input.OnKeyPressed(keyboardEvent); 
+});
+
+document.addEventListener('keyup', (keyboardEvent) => { 
+    input.OnKeyUp(keyboardEvent); 
+});

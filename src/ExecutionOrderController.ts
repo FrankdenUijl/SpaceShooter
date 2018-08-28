@@ -1,22 +1,27 @@
 import { multiInject, injectable, optional } from "inversify";
 
-export interface Load {
+export interface Load 
+{
     Load(): void;
 }
 
-export interface Awake {
+export interface Awake 
+{
     Awake(): void;
 }
 
-export interface Start {
+export interface Start 
+{
     Start(): void;
 }
 
-export interface Update {
+export interface Update 
+{
     Update(deltaTime: number): void;
 }
 
-export interface OnResize {
+export interface OnResize 
+{
     OnResize(): void;
 }
 
